@@ -1,0 +1,23 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div id="returned">
+    </div>
+
+    <script>
+        $(function()
+        {
+            function poll()
+            {
+                $.get("main.php", function(data)
+                {
+                    $("#returned").html(data);
+                    poll();
+                });
+            }
+            
+            poll();
+        })
+    </script>
+</body>
